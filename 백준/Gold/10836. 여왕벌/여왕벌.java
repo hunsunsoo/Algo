@@ -32,7 +32,7 @@ public class Main {
             for (int i=M-1; i>=0; i--) {
                 while (true) {
                     if (list[d][plus] > 0) {
-                        temp[i][0] = plus;
+                        map[i][0] += plus;
                         list[d][plus]--;
                         break;
                     } else {
@@ -45,7 +45,7 @@ public class Main {
             for (int j=1; j<M; j++) {
                 while (true) {
                     if (list[d][plus] > 0) {
-                        temp[0][j] = plus;
+                        map[0][j] += plus;
                         list[d][plus]--;
                         break;
                     } else {
@@ -55,18 +55,23 @@ public class Main {
             }
 
             // 가운데
-            for (int i=1; i<M; i++) {
-                for (int j=1; j<M; j++) {
-                    int max = Math.max(Math.max(temp[i][j-1], temp[i-1][j-1]), temp[i-1][j]);
-                    temp[i][j] = max;
-                }
-            }
+//            for (int i=1; i<M; i++) {
+//                for (int j=1; j<M; j++) {
+//                    int max = Math.max(Math.max(temp[i][j-1], temp[i-1][j-1]), temp[i-1][j]);
+//                    temp[i][j] = max;
+//                }
+//            }
 
             // map + temp
-            for (int i=0; i<M; i++) {
-                for (int j=0; j<M; j++) {
-                    map[i][j] += temp[i][j];
-                }
+//            for (int i=0; i<M; i++) {
+//                for (int j=0; j<M; j++) {
+//                    map[i][j] += temp[i][j];
+//                }
+//            }
+        }
+        for (int i=1; i<M; i++) {
+            for (int j=1; j<M; j++) {
+                map[i][j] = map[i-1][j];
             }
         }
 
