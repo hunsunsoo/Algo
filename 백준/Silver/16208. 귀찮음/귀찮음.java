@@ -8,7 +8,7 @@ public class Main {
         int N = Integer.parseInt(br.readLine());
         int[] list = new int[N];
         StringTokenizer st = new StringTokenizer(br.readLine());
-        int sum = 0;
+        long sum = 0;
         for (int i=0; i<N; i++) {
             list[i] = Integer.parseInt(st.nextToken());
             sum += list[i];
