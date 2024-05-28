@@ -12,8 +12,15 @@ public class Main {
         int[][] map = new int[N][M];
 
         if (K != 0) {
-            int n = K/M;
-            int m = (K%M)-1;
+            int n = 0;
+            int m = 0;
+            if (K%M == 0) {
+                n = K/M-1;
+                m = M-1;
+            } else {
+                n = K/M;
+                m = (K%M)-1;
+            }
 
             for (int i=0; i<=m; i++) map[0][i] = 1;
             for (int i=0; i<=n; i++) map[i][0] = 1;
